@@ -14,6 +14,7 @@ route.post('/users', validUsername, validEmail, validPassword, User.create);
 route.post('/login', validLogin, Login.login);
 
 route.get('/tasks', Task.getAll);
+route.get('/tasks/search', Task.getByName);
 route.post('/tasks', validName, validTask, validToken, Task.create);
 route.put('/tasks/:id', validName, validTask, validToken, Task.update);
 route.delete('/tasks/:id', validToken, Task.remove);

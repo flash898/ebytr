@@ -15,6 +15,12 @@ const getAll = async () =>
   connection()
     .then((db) => db.collection('tasks').find().toArray());
 
+const getByName = async (name) =>
+  connection()
+    .then((db) => db.collection('tasks').findOne({ name }))
+    .then((result) => newTask({ _id: result.insertedId, name, task }, username))
+    .catch(() => null);
+
 const create = async ({ name, task }, username) =>
   connection()
     .then((db) => db.collection('tasks').insertOne({ name, task, username }))
@@ -29,4 +35,4 @@ const remove = async (id) =>
   connection()
     .then((db) => db.collection('tasks').deleteOne({ _id: ObjectId(id) }));
 
-module.exports = { getAll, create, update, remove };
+module.exports = { getAll, getByName, create, update, remove };

@@ -6,6 +6,15 @@ const getAll = async (_req, res) => {
   return res.status(200).json(Object.values(tasks));
 };
 
+const getByName = async (req, res) => {
+  const { q } = req.query;
+  const response = await serviceTasks.getAll();
+  const filterTasks = response.filter((r) => r.name.includes(q));
+  console.log(filterTasks);
+
+  return res.status(200).json({ filterTasks });
+}
+
 const create = async (req, res) => {
   const task = req.body;
 
@@ -27,8 +36,8 @@ const remove = async (req, res) => {
   const { id } = req.params;
 
   await serviceTasks.remove(id);
-  
+
   return res.status(200).json({ message: 'Successfully deleted.' });
 }
 
-module.exports = { getAll, create, update, remove };
+module.exports = { getAll, getByName, create, update, remove };
