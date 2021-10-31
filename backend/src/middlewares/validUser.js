@@ -1,6 +1,6 @@
-const validName = async (req, res, next) => {
-  const { name } = req.body;
-  if (!name || name === '') {
+const validUsername = async (req, res, next) => {
+  const { username } = req.body;
+  if (!username || username === '') {
     return res.status(400).json({ message: 'Invalid entries. Try again.' });
   }
   next();
@@ -35,4 +35,4 @@ const validPassword = (req, res, next) => {
   next();
 };
 
-module.exports = { validName, validEmail, validPassword };
+module.exports = { validUsername, validEmail, validPassword };

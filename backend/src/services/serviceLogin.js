@@ -5,9 +5,9 @@ const secret = 'meusecret123';
 
 const login = async (email) => {
   const user = await modelLogin.findUser(email);
-  const { _id, name, role } = user;
+  const { _id, username, role } = user;
 
-  const token = jwt.sign({ id: _id, name, role }, secret);
+  const token = jwt.sign({ id: _id, username, role }, secret);
   return token;
 };
 
