@@ -14,4 +14,13 @@ const create = async (req, res) => {
   return res.status(201).json({ task: tasks });
 };
 
-module.exports = { getAll, create };
+const update = async (req, res) => {
+  const { id } = req.params;
+  const updateTask = req.body;
+
+  const task = await serviceTasks.update(id, updateTask, req.user.username);
+
+  return res.status(200).json(task);
+}
+
+module.exports = { getAll, create, update };
