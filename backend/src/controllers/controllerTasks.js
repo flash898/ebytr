@@ -10,7 +10,6 @@ const getByName = async (req, res) => {
   const { q } = req.query;
   const response = await serviceTasks.getAll();
   const filterTasks = response.filter((r) => r.name.includes(q));
-  console.log(filterTasks);
 
   return res.status(200).json({ filterTasks });
 }
