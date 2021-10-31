@@ -6,4 +6,6 @@ const create = async (newTask, username) => modelTasks.create(newTask, username)
 
 const update = async (id, updateTask, username) => modelTasks.update(id, updateTask, username);
 
-module.exports = { getAll, create, update };
+const remove = async (id) => modelTasks.remove(id);
+
+module.exports = { getAll, create, update, remove };

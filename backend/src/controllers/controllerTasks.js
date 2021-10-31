@@ -23,4 +23,12 @@ const update = async (req, res) => {
   return res.status(200).json(task);
 }
 
-module.exports = { getAll, create, update };
+const remove = async (req, res) => {
+  const { id } = req.params;
+
+  await serviceTasks.remove(id);
+  
+  return res.status(200).json({ message: 'Successfully deleted.' });
+}
+
+module.exports = { getAll, create, update, remove };

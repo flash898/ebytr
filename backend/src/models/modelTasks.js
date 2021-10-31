@@ -25,4 +25,8 @@ const update = async (id, { name, task }, username) =>
     .then((db) => db.collection('tasks').updateOne({ _id: ObjectId(id) }, { $set: { name, task, username }}))
     .then(() => newTask({ _id: id, name, task }, username));
 
-module.exports = { getAll, create, update };
+const remove = async (id) =>
+  connection()
+    .then((db) => db.collection('tasks').deleteOne({ _id: ObjectId(id) }));
+
+module.exports = { getAll, create, update, remove };
