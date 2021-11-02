@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react';
 import BodyTask from '../components/BodyTask';
 import Task from '../components/Task';
 import MyContext  from '../context/MyContext';
@@ -19,14 +19,14 @@ const Tasks = () => {
     setTimeout(() => {
       getTasks();
     }, 1)
-  };
+  }
 
   function reloadPage(id) {
     deleteTask(id);
     setTimeout(() => {
       getTasks();
     }, 1)
-  };
+  }
 
  
   return (

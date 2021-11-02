@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import React, { useState, useCallback } from 'react';
 import MyContext from './MyContext';
 import axios from 'axios';
@@ -21,43 +22,43 @@ function Provider({ children }) {
       setStatus(false);
     } else {
       setStatus(true);
-    };
-  };
+    }
+  }
 
   function loginInput({ target }) {
     setEmail(target.value);
     ableButton();
-  };
+  }
 
   function passwordInput({ target }) {
     setPassword(target.value);
     ableButton();
-  };
+  }
 
   function confirmInput({ target }) {
     setConfirm(target.value);
     ableButton();
-  };
+  }
 
   function usernameInput({ target }) {
     setUsername(target.value);
     ableButton();
-  };
+  }
 
   function clearInputs(){
     setUsername('');
     setEmail('');
     setPassword('');
     setConfirm('');
-  };
+  }
 
   function nameInput({ target }) {
     setName(target.value);
-  };
+  }
 
   function taskInput({ target }) {
     setTask(target.value);
-  };
+  }
 
   // Axios functions
   function userExists(email, password) {
@@ -71,7 +72,7 @@ function Provider({ children }) {
       localStorage.setItem('token', response.data.token);
     });
     return user;
-  };
+  }
 
   function createUser(username, email, password) {
     const newUser = axios
@@ -85,7 +86,7 @@ function Provider({ children }) {
     setPassword('');
     setConfirm('');
     return newUser;
-  };
+  }
 
   const getTasks = useCallback(() => {
     const tasks = axios
@@ -102,8 +103,10 @@ function Provider({ children }) {
       task: task,
     }, { headers: { Authorization: token } })
     .then((response) => setTasks([...tasks, response.data.task]));
+    setName('');
+    setTask('');
     return newTask;
-  };
+  }
 
   function updateTask(id, name, task) {
     const token = localStorage.getItem('token');
@@ -113,7 +116,7 @@ function Provider({ children }) {
       task
     }, { headers: { Authorization: token } });
     return update;
-  };
+  }
 
   function deleteTask(id) {
     const token = localStorage.getItem('token');
@@ -121,7 +124,7 @@ function Provider({ children }) {
     .delete(`http://localhost:5000/tasks/${id}`, 
       { headers: { Authorization: token } });
     return remove;
-  };
+  }
 
   const contextValue = {
     email,
@@ -162,6 +165,10 @@ function Provider({ children }) {
       {children}
     </MyContext.Provider>
   );
-};
+}
+
+Provider.propTypes = {
+  children: PropTypes.object
+}
 
 export default Provider;

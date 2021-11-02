@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import React, { useContext } from 'react';
 import MyContext from '../context/MyContext';
 
@@ -5,9 +6,9 @@ const Modal = ({ updateTask, id, modal }) => {
 
   const { 
     name, 
-    setName, 
     task, 
-    setTask } = useContext(MyContext)
+    nameInput,
+    taskInput } = useContext(MyContext)
 
   return (
     <div>
@@ -15,13 +16,13 @@ const Modal = ({ updateTask, id, modal }) => {
         type='text'
         name='name'
         placeholder='name'
-        onChange={ ({ target }) =>  setName(target.value) }
+        onChange={ nameInput }
       />
       <input 
         type='text' 
         name='task' 
         placeholder='task' 
-        onChange={ ({ target }) => setTask(target.value) } 
+        onChange={ taskInput }
       />
       <button
         type='button'
@@ -34,6 +35,12 @@ const Modal = ({ updateTask, id, modal }) => {
       </button>
     </div>
   ) 
+}
+
+Modal.propTypes = {
+  id: PropTypes.string,
+  modal: PropTypes.func,
+  updateTask: PropTypes.func
 }
 
 export default Modal;

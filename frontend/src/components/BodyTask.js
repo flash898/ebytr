@@ -1,10 +1,18 @@
+import PropTypes from "prop-types"
 import React, { useState } from 'react';
 import Modal from './Modal';
 
 const BodyTask = ({ element, reloadPage, reloadTask}) => {
   const [modal, setModal] = useState(false);
 
-  if (modal) return <Modal updateTask={ reloadTask } id={ element._id } name={ element.name } task={ element.task } modal={ setModal }/>
+  if (modal) return <Modal 
+      updateTask={ reloadTask } 
+      id={ element._id } 
+      name={ element.name } 
+      task={ element.task } 
+      modal={ setModal }
+    />
+
   return (
     <div>
     <p>{ element.name }</p>
@@ -24,6 +32,17 @@ const BodyTask = ({ element, reloadPage, reloadTask}) => {
     </button>
   </div>
   )
+}
+
+BodyTask.propTypes = {
+  element: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    task: PropTypes.string,
+    username: PropTypes.string
+  }),
+  reloadPage: PropTypes.func,
+  reloadTask: PropTypes.any
 }
 
 export default BodyTask;
