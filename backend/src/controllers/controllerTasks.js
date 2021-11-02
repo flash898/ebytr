@@ -33,7 +33,7 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
   const { id } = req.params;
-
+  
   await serviceTasks.remove(id);
 
   return res.status(200).json({ message: 'Successfully deleted.' });
