@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import MyContext from '../context/MyContext'
 
-export const Button = () => {
+const Button = (title) => {
+  const { tasks } = useContext(MyContext);
+
+  function orderTasks(title) {
+    if(title === 'Por ordem alfabética') tasks.sort((a, b) => a.name - b.name);
+    if(title === 'Data de criação') tasks.sort((a, b) => a.date - b.date);
+    if(title === 'Status') tasks.sort((a, b) => a.status = b.status);
+  }
+
   return (
-    <div>
-      
-    </div>
-  )
+    <button
+      type='button'
+      onClick={ (title) => orderTasks(title) }
+    >
+      {title}
+    </button>
+  );
 }
+
+export default Button;

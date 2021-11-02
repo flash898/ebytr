@@ -13,6 +13,7 @@ function Provider({ children }) {
   const [tasks, setTasks] = useState([]);
   const [name, setName] = useState('');
   const [task, setTask] = useState('');
+  const [progress, setProgress] = useState('');
 
   // Input functions
   function ableButton() {
@@ -60,6 +61,10 @@ function Provider({ children }) {
     setTask(target.value);
   }
 
+  function progressInput({ target }) {
+    setProgress(target.value)
+  }
+
   // Axios functions
   function userExists(email, password) {
     const user = axios
@@ -95,12 +100,13 @@ function Provider({ children }) {
     return tasks;
   }, []);
 
-  function createTask(name, task) {
+  function createTask(name, task, progress) {
     const token = localStorage.getItem('token');
     const newTask = axios
     .post('http://localhost:5000/tasks/create', {
       name: name,
       task: task,
+      progress: progress
     }, { headers: { Authorization: token } })
     .then((response) => setTasks([...tasks, response.data.task]));
     setName('');
@@ -108,12 +114,13 @@ function Provider({ children }) {
     return newTask;
   }
 
-  function updateTask(id, name, task) {
+  function updateTask(id, name, task, progress) {
     const token = localStorage.getItem('token');
     const update = axios
     .put(`http://localhost:5000/tasks/${id}`, {
       name,
-      task
+      task,
+      progress: progress
     }, { headers: { Authorization: token } });
     return update;
   }
@@ -157,7 +164,10 @@ function Provider({ children }) {
     nameInput,
     taskInput,
     updateTask,
-    deleteTask
+    deleteTask,
+    progress,
+    setProgress,
+    progressInput
   };
 
   return (

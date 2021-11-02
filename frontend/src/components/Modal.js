@@ -6,9 +6,11 @@ const Modal = ({ updateTask, id, modal }) => {
 
   const { 
     name, 
-    task, 
+    task,
+    progress,
     nameInput,
-    taskInput } = useContext(MyContext)
+    taskInput,
+    progressInput } = useContext(MyContext)
 
   return (
     <div>
@@ -24,10 +26,15 @@ const Modal = ({ updateTask, id, modal }) => {
         placeholder='task' 
         onChange={ taskInput }
       />
+      <select  onChange={ progressInput }>
+        <option name='pending' value='pending'>Pending</option>
+        <option name='in-progress' value='in-progress'>In progress</option>
+        <option name='concluded' value='concluded'>Concluded</option>
+      </select>
       <button
         type='button'
         onClick={ () =>{ 
-          updateTask(id, name, task);
+          updateTask(id, name, task, progress);
           modal(false);
         }}
       >

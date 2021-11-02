@@ -5,17 +5,18 @@ import MyContext  from '../context/MyContext';
 
 const Tasks = () => {
   const {
-    tasks, 
+    tasks,
     getTasks,
-    updateTask, 
-    deleteTask } = useContext(MyContext);
+    updateTask,
+    deleteTask,
+    setTasks } = useContext(MyContext);
  
   useEffect(() => {
     getTasks();
   }, [getTasks])
 
-  function reloadTask(id, name, task) {
-    updateTask(id, name, task);
+  function reloadTask(id, name, task, progress) {
+    updateTask(id, name, task, progress);
     setTimeout(() => {
       getTasks();
     }, 1)
@@ -25,18 +26,39 @@ const Tasks = () => {
     deleteTask(id);
     setTimeout(() => {
       getTasks();
-    }, 1)
+    }, 1);
   }
 
- 
+  function orderTaskByAlfabetic() {
+    console.log(tasks);
+    const order = tasks.sort((a, b) => a.name - b.name);
+    return setTasks(order);
+  }
+
   return (
     <div>
       <h1>Tasks</h1>
+      <button
+        type='button'
+        onClick={ orderTaskByAlfabetic }
+      >
+        Alphabetical Order
+      </button>
+      <button
+        type='button'
+      >
+        Date
+      </button>
+      <button
+        type='button'
+      >
+        Status
+      </button>
       <Task />
-      {!tasks 
-      ? <span>Loading</span> 
+      {!tasks
+      ? <span>Loading</span>
       : tasks.map((element, index) => (
-       <BodyTask 
+       <BodyTask
         key={ index }
         element={ element }
         reloadPage={ reloadPage }
@@ -44,7 +66,7 @@ const Tasks = () => {
         />
       ))}
     </div>
-  )
+  );
 }
 
 export default Tasks;
