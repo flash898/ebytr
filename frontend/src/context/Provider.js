@@ -53,11 +53,11 @@ function Provider({ children }) {
 
   function nameInput({ target }) {
     setName(target.value);
-  }
+  };
 
   function taskInput({ target }) {
     setTask(target.value);
-  }
+  };
 
   // Axios functions
   function userExists(email, password) {
@@ -105,6 +105,24 @@ function Provider({ children }) {
     return newTask;
   };
 
+  function updateTask(id, name, task) {
+    const token = localStorage.getItem('token');
+    const update = axios
+    .put(`http://localhost:5000/tasks/${id}`, {
+      name,
+      task
+    }, { headers: { Authorization: token } });
+    return update;
+  };
+
+  function deleteTask(id) {
+    const token = localStorage.getItem('token');
+    const remove = axios
+    .delete(`http://localhost:5000/tasks/${id}`, 
+      { headers: { Authorization: token } });
+    return remove;
+  };
+
   const contextValue = {
     email,
     setEmail,
@@ -134,7 +152,9 @@ function Provider({ children }) {
     setTask,
     createTask,
     nameInput,
-    taskInput
+    taskInput,
+    updateTask,
+    deleteTask
   };
 
   return (
