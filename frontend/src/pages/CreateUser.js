@@ -1,81 +1,102 @@
 import React, { useContext } from 'react';
-import MyContext  from '../context/MyContext';
 import { Link } from 'react-router-dom';
+import MyContext from '../context/MyContext';
 
 const CreateUser = () => {
-  const { 
+  const {
     username,
     email,
     password,
-    confirm,
     status,
     setStatus,
-    usernameInput,
-    loginInput,
-    passwordInput,
-    confirmInput,
     createUser,
-    clearInputs } = useContext(MyContext);
-  
-  if (password !== confirm) setStatus(true);
+    setEmail,
+    setPassword,
+    setUsername,
+  } = useContext(MyContext);
+
+  function ableButton() {
+    const numMin = 6;
+    const regex = /\w+@\w+.com(.br)?/;
+    if (regex.test(email) && password.length >= numMin) {
+      setStatus(false);
+    } else {
+      setStatus(true);
+    }
+  }
+
+  function loginInput({ target }) {
+    setEmail(target.value);
+    ableButton();
+  }
+
+  function passwordInput({ target }) {
+    setPassword(target.value);
+    ableButton();
+  }
+
+  function usernameInput({ target }) {
+    setUsername(target.value);
+    ableButton();
+  }
+
+  function clearInputs() {
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setConfirm('');
+  }
 
   return (
     <div>
       <form>
         <input
-          type='text'
-          name='user'
-          placeholder='username'
+          type="text"
+          name="user"
+          placeholder="username"
           onChange={ usernameInput }
           value={ username }
         />
-        <input 
-          type='text'
-          name='email'
-          placeholder='e-mail'
+        <input
+          type="text"
+          name="email"
+          placeholder="e-mail"
           onChange={ loginInput }
           value={ email }
         />
         <input
-          type='password' 
-          name='password' 
-          placeholder='password'
+          type="text"
+          name="password"
+          placeholder="password"
           onChange={ passwordInput }
           value={ password }
         />
-        <input
-          type='password'
-          name='confirm-password'
-          placeholder='confirm password'
-          onChange={ confirmInput }
-          value={ confirm }
-        />
-        <button 
-          type='button'
-          name='create'
+        <button
+          type="button"
+          name="create"
           onClick={ () => createUser(username, email, password) }
           disabled={ status }
         >
           Create User
         </button>
-        <button 
-          type='button' 
-          name='clear'
+        <button
+          type="button"
+          name="clear"
           onClick={ clearInputs }
         >
           Clear
         </button>
-        <Link to='/'>
-          <button 
-            type='button'
-            name='back'
+        <Link to="/">
+          <button
+            type="button"
+            name="back"
           >
             Back to Login
           </button>
         </Link>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default CreateUser
+export default CreateUser;

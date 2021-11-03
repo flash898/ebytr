@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import BodyTask from '../components/BodyTask';
 import Task from '../components/Task';
-import MyContext  from '../context/MyContext';
+import MyContext from '../context/MyContext';
 
 const Tasks = () => {
   const {
@@ -9,64 +9,73 @@ const Tasks = () => {
     getTasks,
     updateTask,
     deleteTask,
-    setTasks } = useContext(MyContext);
- 
+    orderTaskByAlfabetic,
+    orderTaskByDate,
+    orderTaskByProgress } = useContext(MyContext);
+
+  const [change, setChange] = useState(false);
+
   useEffect(() => {
     getTasks();
-  }, [getTasks])
+  }, [getTasks]);
 
-  function reloadTask(id, name, task, progress) {
+  const reloadTask = (id, name, task, progress) => {
     updateTask(id, name, task, progress);
     setTimeout(() => {
       getTasks();
-    }, 1)
-  }
+    }, 1);
+  };
 
-  function reloadPage(id) {
+  const reloadPage = (id) => {
     deleteTask(id);
     setTimeout(() => {
       getTasks();
     }, 1);
-  }
-
-  function orderTaskByAlfabetic() {
-    console.log(tasks);
-    const order = tasks.sort((a, b) => a.name - b.name);
-    return setTasks(order);
-  }
+  };
 
   return (
     <div>
       <h1>Tasks</h1>
       <button
-        type='button'
-        onClick={ orderTaskByAlfabetic }
+        type="button"
+        onClick={ () => {
+          orderTaskByAlfabetic();
+          setChange(!change);
+        } }
       >
         Alphabetical Order
       </button>
       <button
-        type='button'
+        type="button"
+        onClick={ () => {
+          orderTaskByDate();
+          setChange(!change);
+        } }
       >
         Date
       </button>
       <button
-        type='button'
+        type="button"
+        onClick={ () => {
+          orderTaskByProgress();
+          setChange(!change);
+        } }
       >
         Status
       </button>
       <Task />
       {!tasks
-      ? <span>Loading</span>
-      : tasks.map((element, index) => (
-       <BodyTask
-        key={ index }
-        element={ element }
-        reloadPage={ reloadPage }
-        reloadTask={ reloadTask }
-        />
-      ))}
+        ? <span>Loading</span>
+        : tasks.map((element, index) => (
+          <BodyTask
+            key={ index }
+            element={ element }
+            reloadPage={ reloadPage }
+            reloadTask={ reloadTask }
+          />
+        ))}
     </div>
   );
-}
+};
 
 export default Tasks;
