@@ -2,11 +2,13 @@ const { ObjectId } = require('mongodb');
 const { connection } = require('./connection');
 
 const newTask = (data, username) => {
-  const { _id, name, task  } = data;
+  const { _id, name, task, createAt, progress } = data;
   return {
     _id,
     name,
     task,
+    createAt,
+    progress,
     username,
    };
   };
@@ -21,15 +23,17 @@ const getByName = async (name) =>
     .then((result) => newTask({ _id: result.insertedId, name, task }, username))
     .catch(() => null);
 
-const create = async ({ name, task }, username) =>
-  connection()
-    .then((db) => db.collection('tasks').insertOne({ name, task, username }))
-    .then((result) => newTask({ _id: result.insertedId, name, task }, username));
+const create = async ({ name, task, progress }, username) => {
+  const createAt = new Date().toLocaleString();
+  return  connection()
+    .then((db) => db.collection('tasks').insertOne({ name, task, progress, createAt, username }))
+    .then((result) => newTask({ _id: result.insertedId, name, task, progress, createAt }, username));
+  }
 
-const update = async (id, { name, task }, username) =>
+const update = async (id, { name, task, progress }, username) =>
   connection()
-    .then((db) => db.collection('tasks').updateOne({ _id: ObjectId(id) }, { $set: { name, task, username }}))
-    .then(() => newTask({ _id: id, name, task }, username));
+    .then((db) => db.collection('tasks').updateOne({ _id: ObjectId(id) }, { $set: { name, task, progress, username }}))
+    .then(() => newTask({ _id: id, name, task, progress }, username));
 
 const remove = async (id) =>
   connection()

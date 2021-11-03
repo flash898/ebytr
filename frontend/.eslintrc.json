@@ -1,0 +1,5 @@
+{
+  "root": true,
+  "extends": ["trybe-frontend"],
+  "rules": { "no-shadow": "off" }
+}
