@@ -17,7 +17,7 @@ function Provider({ children }) {
   // Axios functions
   function userExists(email, password) {
     const getUser = axios
-      .post('http://192.168.15.8:5000/login', {
+      .post('https://ebytrtodo.herokuapp.com/login', {
         email,
         password,
       })
@@ -30,7 +30,7 @@ function Provider({ children }) {
 
   function createUser(username, email, password) {
     const newUser = axios
-      .post('http://192.168.15.8:5000/users/create', {
+      .post('https://ebytrtodo.herokuapp.com/users/create', {
         username,
         email,
         password,
@@ -43,7 +43,7 @@ function Provider({ children }) {
 
   const getTasks = useCallback(() => {
     const getAllTasks = axios
-      .get('http://192.168.15.8:5000/tasks')
+      .get('https://ebytrtodo.herokuapp.com/tasks')
       .then((response) => setTasks(response.data));
     return getAllTasks;
   }, []);
@@ -51,7 +51,7 @@ function Provider({ children }) {
   function createTask(name, task, progress) {
     const token = localStorage.getItem('token');
     const newTask = axios
-      .post('http://192.168.15.8:5000/tasks/create', {
+      .post('https://ebytrtodo.herokuapp.com/tasks/create', {
         name,
         task,
         progress,
@@ -65,7 +65,7 @@ function Provider({ children }) {
   function updateTask(id, name, task, progress) {
     const token = localStorage.getItem('token');
     const update = axios
-      .put(`http://192.168.15.8:5000/tasks/${id}`, {
+      .put(`https://ebytrtodo.herokuapp.com/tasks/${id}`, {
         name,
         task,
         progress,
@@ -76,7 +76,7 @@ function Provider({ children }) {
   function deleteTask(id) {
     const token = localStorage.getItem('token');
     const remove = axios
-      .delete(`http://192.168.15.8:5000/tasks/${id}`,
+      .delete(`https://ebytrtodo.herokuapp.com/tasks/${id}`,
         { headers: { Authorization: token } });
     return remove;
   }
