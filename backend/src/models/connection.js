@@ -9,6 +9,7 @@ const ATLAS_URI = process.env.ATLAS_URI;
 const DB_NAME = 'ebytr';
 let db = null;
 
+// connect to database
 const connection = () => (db
   ? Promise.resolve(db)
   : MongoClient.connect(ATLAS_URI, options).then((conn) => {
