@@ -16,7 +16,7 @@ function Header({ disable }) {
       && (
         <button
           type="button"
-          className="btn btn-outline-dark"
+          className="btn btn-outline-dark btn-header"
           onClick={ logout }
         >
           Logout

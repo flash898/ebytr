@@ -43,3 +43,20 @@
   width: 43%;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 500px){
+  .div-task {
+    height: 350px;
+  }
+
+  .div-task:hover {
+    transform: none;
+  }
+  
+  .div-task:hover~.div-task {
+    transform: none;
+  }
+  .div-task:not(:first-child) {
+    margin: 0 auto;
+  }
+}

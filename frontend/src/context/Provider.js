@@ -17,7 +17,7 @@ function Provider({ children }) {
   // Axios functions
   function userExists(email, password) {
     const getUser = axios
-      .post('http://localhost:5000/login', {
+      .post('http://192.168.15.8:5000/login', {
         email,
         password,
       })
@@ -30,7 +30,7 @@ function Provider({ children }) {
 
   function createUser(username, email, password) {
     const newUser = axios
-      .post('http://localhost:5000/users/create', {
+      .post('http://192.168.15.8:5000/users/create', {
         username,
         email,
         password,
@@ -44,7 +44,7 @@ function Provider({ children }) {
 
   const getTasks = useCallback(() => {
     const getAllTasks = axios
-      .get('http://localhost:5000/tasks')
+      .get('http://192.168.15.8:5000/tasks')
       .then((response) => setTasks(response.data));
     return getAllTasks;
   }, []);
@@ -52,7 +52,7 @@ function Provider({ children }) {
   function createTask(name, task, progress) {
     const token = localStorage.getItem('token');
     const newTask = axios
-      .post('http://localhost:5000/tasks/create', {
+      .post('http://192.168.15.8:5000/tasks/create', {
         name,
         task,
         progress,
@@ -66,7 +66,7 @@ function Provider({ children }) {
   function updateTask(id, name, task, progress) {
     const token = localStorage.getItem('token');
     const update = axios
-      .put(`http://localhost:5000/tasks/${id}`, {
+      .put(`http://192.168.15.8:5000/tasks/${id}`, {
         name,
         task,
         progress,
@@ -77,7 +77,7 @@ function Provider({ children }) {
   function deleteTask(id) {
     const token = localStorage.getItem('token');
     const remove = axios
-      .delete(`http://localhost:5000/tasks/${id}`,
+      .delete(`http://192.168.15.8:5000/tasks/${id}`,
         { headers: { Authorization: token } });
     return remove;
   }

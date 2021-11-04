@@ -16,6 +16,7 @@ const BodyTask = ({ element, reloadPage, reloadTask }) => {
       task={ element.task }
       progress={ element.progress }
       modal={ setModal }
+      element={ element }
     />);
   }
 

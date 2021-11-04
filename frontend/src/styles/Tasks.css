@@ -28,3 +28,10 @@ body::-webkit-scrollbar-track {
 .page-tasks h1 {
   color: #fec63e;
 }
+
+@media screen and (max-width: 500px){
+  .page-tasks button {
+    width: 200px;
+    margin: 5px;
+  }
+}
