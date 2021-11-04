@@ -9,7 +9,6 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
       <Switch>
         <Route exact path="/" component={ Login } />
         <Route exact path="/tasks" component={ Tasks } />

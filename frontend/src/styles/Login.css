@@ -1,0 +1,16 @@
+.form-label {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-group {
+  width: 400px;
+  margin: 20px auto;
+}
+
+.btn {
+  margin-right: 25px;
+}
+

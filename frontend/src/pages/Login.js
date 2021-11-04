@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Header from '../components/Header';
 import MyContext from '../context/MyContext';
+import '../styles/Login.css';
 
 const Login = () => {
   const {
@@ -8,7 +10,6 @@ const Login = () => {
     setEmail,
     password,
     setPassword,
-    token,
     user,
     status,
     setStatus,
@@ -37,32 +38,43 @@ const Login = () => {
 
   return (
     <div>
-      { user.users && <Redirect to="/tasks" /> }
-      <form>
-        <h1>Login</h1>
-        <input
-          type="text"
-          name="email"
-          placeholder="email"
-          onChange={ loginInput }
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          onChange={ passwordInput }
-        />
-        <button
-          type="button"
-          disabled={ status }
-          onClick={ () => userExists(email, password, token) }
-        >
-          Entrar
-        </button>
-        <Link to="/users/create">
-          Criar Usuário
-        </Link>
-      </form>
+      <Header disable />
+      <div className="form-label">
+        { user.users && <Redirect to="/tasks" /> }
+        <form>
+          <h2>Login to continue</h2>
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              name="email"
+              placeholder="Email"
+              onChange={ loginInput }
+            />
+            <span className="input-group-text" id="basic-addon1">@</span>
+          </div>
+          <div className="input-group mb-3">
+            <input
+              type="password"
+              className="form-control"
+              name="password"
+              placeholder="Password"
+              onChange={ passwordInput }
+            />
+          </div>
+          <button
+            type="button"
+            className="btn btn-success"
+            disabled={ status }
+            onClick={ () => userExists(email, password) }
+          >
+            Entrar
+          </button>
+          <Link to="/users/create" className="btn btn-warning">
+            Criar Usuário
+          </Link>
+        </form>
+      </div>
     </div>
   );
 };

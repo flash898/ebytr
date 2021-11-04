@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import MyContext from '../context/MyContext';
+import Header from '../components/Header';
+import '../styles/CreateUser.css';
 
 const CreateUser = () => {
   const {
@@ -44,57 +46,66 @@ const CreateUser = () => {
     setUsername('');
     setEmail('');
     setPassword('');
-    setConfirm('');
   }
 
   return (
     <div>
-      <form>
-        <input
-          type="text"
-          name="user"
-          placeholder="username"
-          onChange={ usernameInput }
-          value={ username }
-        />
-        <input
-          type="text"
-          name="email"
-          placeholder="e-mail"
-          onChange={ loginInput }
-          value={ email }
-        />
-        <input
-          type="text"
-          name="password"
-          placeholder="password"
-          onChange={ passwordInput }
-          value={ password }
-        />
-        <button
-          type="button"
-          name="create"
-          onClick={ () => createUser(username, email, password) }
-          disabled={ status }
-        >
-          Create User
-        </button>
-        <button
-          type="button"
-          name="clear"
-          onClick={ clearInputs }
-        >
-          Clear
-        </button>
-        <Link to="/">
+      <Header disable />
+      <div className="form-div">
+        <h3 className="title-create">Enter your data</h3>
+        <form>
+          <input
+            type="text"
+            name="user"
+            className="form-control control-create"
+            placeholder="Username"
+            onChange={ usernameInput }
+            value={ username }
+          />
+          <input
+            type="text"
+            name="email"
+            className="form-control control-create"
+            placeholder="E-mail"
+            onChange={ loginInput }
+            value={ email }
+          />
+          <input
+            type="text"
+            name="password"
+            className="form-control control-create"
+            placeholder="Password"
+            onChange={ passwordInput }
+            value={ password }
+          />
           <button
             type="button"
-            name="back"
+            name="create"
+            className="btn btn-success btn-create"
+            onClick={ () => createUser(username, email, password) }
+            disabled={ status }
           >
-            Back to Login
+            Create User
           </button>
-        </Link>
-      </form>
+          <button
+            type="button"
+            name="clear"
+            className="btn btn-warning btn-create"
+            onClick={ clearInputs }
+          >
+            Clear
+          </button>
+          <Link to="/">
+            <button
+              type="button"
+              className="btn btn-warning btn-create"
+              name="back"
+            >
+              Back to Login
+            </button>
+          </Link>
+        </form>
+      </div>
     </div>
   );
 };
