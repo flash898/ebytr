@@ -18,7 +18,7 @@ const CreateUser = () => {
   } = useContext(MyContext);
 
   function ableButton() {
-    const numMin = 6;
+    const numMin = 5;
     const regex = /\w+@\w+.com(.br)?/;
     if (regex.test(email) && password.length >= numMin) {
       setStatus(false);
@@ -66,15 +66,15 @@ const CreateUser = () => {
             type="text"
             name="email"
             className="form-control control-create"
-            placeholder="E-mail"
+            placeholder="Example: email@email.com"
             onChange={ loginInput }
             value={ email }
           />
           <input
-            type="text"
+            type="password"
             name="password"
             className="form-control control-create"
-            placeholder="Password"
+            placeholder="Password with 6 or more characters"
             onChange={ passwordInput }
             value={ password }
           />

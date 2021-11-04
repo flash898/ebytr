@@ -8,17 +8,6 @@ import '../styles/BodyTask.css';
 const BodyTask = ({ element, reloadPage, reloadTask }) => {
   const [modal, setModal] = useState(false);
   const id = '_id';
-  if (modal) {
-    return (<Modal
-      updateTask={ reloadTask }
-      id={ element[id] }
-      name={ element.name }
-      task={ element.task }
-      progress={ element.progress }
-      modal={ setModal }
-      element={ element }
-    />);
-  }
 
   return (
     <div className="div-task">
@@ -43,6 +32,15 @@ const BodyTask = ({ element, reloadPage, reloadTask }) => {
           <RiDeleteBin2Line style={ { fontSize: '25px' } } />
         </button>
       </div>
+      {modal && (<Modal
+      updateTask={ reloadTask }
+      id={ element[id] }
+      name={ element.name }
+      task={ element.task }
+      progress={ element.progress }
+      modal={ setModal }
+      element={ element }
+    />)}
     </div>
   );
 };
