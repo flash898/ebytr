@@ -1,0 +1,17 @@
+.task-inputs {
+  width: fit-content;
+  display: flex;
+  margin: 15px auto;
+}
+
+.task-inputs input {
+  margin: 5px;
+}
+
+.task-inputs select {
+  margin: 5px;
+}
+
+.task-inputs button {
+  margin: 5px;
+}

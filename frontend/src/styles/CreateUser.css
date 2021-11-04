@@ -1,0 +1,21 @@
+.form-div {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.form-div h3 {
+  margin-top: 30px;
+  color: #fec63e;
+}
+
+.btn-create {
+  margin: 15px;
+}
+
+.control-create{
+  margin: 15px;
+  text-align: center;
+}

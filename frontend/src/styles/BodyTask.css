@@ -1,0 +1,45 @@
+/* This CSS was based on the video CSS Card Tricks (src: https://www.youtube.com/watch?v=29deL9MFfWc) */
+
+.div-task {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  color: #fff;
+  height: 300px;
+  width: 370px;
+  min-width: 250px;
+  padding: 1.5rem;
+
+  border: 3px solid #0c0b0b;
+  border-right: none;
+  border-radius: 16px;
+  background: #161616;
+  box-shadow: -1rem 0 3rem #161616;
+
+  transition: .2s;
+}
+
+.div-task p:hover {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.div-task:hover {
+  transform: translateY(-1rem);
+}
+
+.div-task:hover~.div-task {
+  transform: translateX(100px);
+}
+
+.div-task:not(:first-child) {
+  margin-left: -100px;
+}
+
+.btn-task {
+  width: 43%;
+  margin: 0 auto;
+}
