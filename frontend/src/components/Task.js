@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import MyContext from '../context/MyContext';
+import '../styles/Task.css';
 
 const Task = () => {
   const {
@@ -25,20 +26,22 @@ const Task = () => {
   }
 
   return (
-    <div>
+    <div className="task-inputs">
       <input
         type="text"
+        className="form-control"
         name="name"
-        placeholder="name"
+        placeholder="Name"
         onChange={ nameInput }
       />
       <input
         type="text"
+        className="form-control"
         name="task"
-        placeholder="task"
+        placeholder="Task"
         onChange={ taskInput }
       />
-      <select onChange={ progressInput }>
+      <select className="form-select" onChange={ progressInput }>
         <option value="">Choose a status</option>
         <option name="pending" value="Pending">Pending</option>
         <option name="in-progress" value="In progress">In progress</option>
@@ -46,6 +49,7 @@ const Task = () => {
       </select>
       <button
         type="button"
+        className="btn btn-success"
         onClick={ () => createTask(name, task, progress) }
       >
         Add

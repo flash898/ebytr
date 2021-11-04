@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { FaRegEdit } from 'react-icons/fa';
+import { RiDeleteBin2Line } from 'react-icons/ri';
 import Modal from './Modal';
+import '../styles/BodyTask.css';
 
 const BodyTask = ({ element, reloadPage, reloadTask }) => {
   const [modal, setModal] = useState(false);
@@ -17,24 +20,28 @@ const BodyTask = ({ element, reloadPage, reloadTask }) => {
   }
 
   return (
-    <div>
-      <p>{ element.name }</p>
-      <p>{ element.task }</p>
-      <p>{ element.username }</p>
-      <p>{ element.progress }</p>
-      <p>{ element.createAt }</p>
-      <button
-        type="button"
-        onClick={ () => setModal(true) }
-      >
-        Edit
-      </button>
-      <button
-        type="button"
-        onClick={ () => reloadPage(element[id]) }
-      >
-        Delete
-      </button>
+    <div className="div-task">
+      <p>{`Task Name: ${element.name}`}</p>
+      <p>{`Task: ${element.task}`}</p>
+      <p>{`User: ${element.username}`}</p>
+      <p>{`Status: ${element.progress}`}</p>
+      <p>{`Create date: ${element.createAt}`}</p>
+      <div className="div-btn">
+        <button
+          type="button"
+          className="btn btn-warning btn-task"
+          onClick={ () => setModal(true) }
+        >
+          <FaRegEdit style={ { fontSize: '25px' } } />
+        </button>
+        <button
+          type="button"
+          className="btn btn-danger btn-task"
+          onClick={ () => reloadPage(element[id]) }
+        >
+          <RiDeleteBin2Line style={ { fontSize: '25px' } } />
+        </button>
+      </div>
     </div>
   );
 };

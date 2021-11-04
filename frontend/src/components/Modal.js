@@ -25,26 +25,29 @@ const Modal = ({ updateTask, id, modal }) => {
   }
 
   return (
-    <div>
+    <div className="div-modal">
       <input
         type="text"
+        className="form-control"
         name="name"
-        placeholder="name"
+        placeholder="Name"
         onChange={ nameInput }
       />
       <input
         type="text"
+        className="form-control"
         name="task"
-        placeholder="task"
+        placeholder="Task"
         onChange={ taskInput }
       />
-      <select onChange={ progressInput }>
+      <select className="form-select" onChange={ progressInput }>
         <option name="pending" value="Pending">Pending</option>
         <option name="in-progress" value="In progress">In progress</option>
         <option name="concluded" value="Concluded">Concluded</option>
       </select>
       <button
         type="button"
+        className="btn btn-success"
         onClick={ () => {
           updateTask(id, name, task, progress);
           modal(false);
