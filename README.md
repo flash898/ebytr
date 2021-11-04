@@ -31,21 +31,20 @@ Espero que vocês gostem dessa aplicação!!!
 
 
 ## Frameworks e bibliotecas
-<img align='center' src='https://user-images.githubusercontent.com/77814658/140163816-ba4ab280-9ff3-4248-acd4-e5c6fc58e0e7.gif'>
 
 Para esse projeto foi utilizado os seguintes frameworks, bibliotecas e ferramentas:
 
-  -[ReactJS](https://pt-br.reactjs.org/)
-  -[Express](https://expressjs.com/pt-br/")
-  -[MongoDB](https://www.mongodb.com/)
-  -[NodeJS](https://nodejs.org/en/)
-  -[React-Icons](https://react-icons.github.io/react-icons/)
-  -[Bootstrap](https://getbootstrap.com/)
-  -[Axios](https://axios-http.com/docs/intro)
-  -[Dotenv](https://www.npmjs.com/package/dotenv)
-  -[Cors](https://www.npmjs.com/package/cors)
-  -[Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
-  -[Nodemon](https://www.npmjs.com/package/nodemon)
+  - [ReactJS](https://pt-br.reactjs.org/)
+  - [Express](https://expressjs.com/pt-br/")
+  - [MongoDB](https://www.mongodb.com/)
+  - [NodeJS](https://nodejs.org/en/)
+  - [React-Icons](https://react-icons.github.io/react-icons/)
+  - [Bootstrap](https://getbootstrap.com/)
+  - [Axios](https://axios-http.com/docs/intro)
+  - [Dotenv](https://www.npmjs.com/package/dotenv)
+  - [Cors](https://www.npmjs.com/package/cors)
+  - [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+  - [Nodemon](https://www.npmjs.com/package/nodemon)
 
 ---
 
@@ -135,9 +134,9 @@ $ yarn dev
 
 Para facilitar a visualização desde projeto, você pode acessar 
 
-  -[EbytrToDo](https://ebytrtodo.netlify.app/)
-  -[DB-Heroku Users](https://ebytrtodo.herokuapp.com/users)
-  -[DB-Heroku Tasks](https://ebytrtodo.herokuapp.com/tasks)
+  - [EbytrToDo](https://ebytrtodo.netlify.app/)
+  - [DB-Heroku Users](https://ebytrtodo.herokuapp.com/users)
+  - [DB-Heroku Tasks](https://ebytrtodo.herokuapp.com/tasks)
 
 ---
 
