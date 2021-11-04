@@ -57,7 +57,7 @@ Para esse projeto foi utilizado os seguintes frameworks, bibliotecas e ferrament
 
 ```bash
 # Clone este repositório
-$ git clone git@github.com:{usuario}/Ebytr.git
+$ git clone git@github.com:flash898/ebytr.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd frontend
@@ -73,7 +73,7 @@ $ npm start
 
 ```bash
 # Clone este repositório
-$ git clone git@github.com:{usuario}/Ebytr.git
+$ git clone git@github.com:flash898/ebytr.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd frontend
@@ -96,7 +96,7 @@ $ yarn start
 
 ```bash
 # Clone este repositório
-$ git clone git@github.com:{usuario}/Ebytr.git
+$ git clone git@github.com:flash898/ebytr.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd backend
@@ -112,7 +112,7 @@ $ npm run dev
 
 ```bash
 # Clone este repositório
-$ git clone git@github.com:{usuario}/Ebytr.git
+$ git clone git@github.com:flash898/ebytr.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd backend
