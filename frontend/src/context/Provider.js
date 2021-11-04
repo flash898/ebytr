@@ -38,7 +38,6 @@ function Provider({ children }) {
     setUsername('');
     setEmail('');
     setPassword('');
-    setConfirm('');
     return newUser;
   }
 
