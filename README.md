@@ -20,7 +20,7 @@ Boas vindas a este repositório, aqui você encontrará informações sobre o pr
 
 ## O que foi desenvolvido
 
-A ideia desse projeto é construir uma aplicação _full-stack_, onde no back-end é desenvolvido uma arquitetura de camadas utilizando o _NodeJS_, _MongoDB_ e _Express_ e no front-end é utilizado o _React_.
+A ideia desse projeto é construir uma aplicação _full-stack_, onde no _back-end_ é desenvolvido uma arquitetura de camadas utilizando o _NodeJS_, _MongoDB_ e _Express_ e no _front-end_ é utilizado o _React_.
 
 Foi construído para essa aplicação um projeto de uma lista de tarefas, onde é possível criar, editar e deletar uma tarefa. Para este projeto também foi construído uma área de login de usuário e criação de usuário, como você poderá ver abaixo.
 
