@@ -24,7 +24,7 @@ function Provider({ children }) {
       .then((response) => {
         setUser(response.data);
         localStorage.setItem('token', response.data.token);
-      });
+      }).catch(() => alert('User or password wrong!'));
     return getUser;
   }
 
@@ -38,6 +38,7 @@ function Provider({ children }) {
     setUsername('');
     setEmail('');
     setPassword('');
+    alert('Created user.');
     return newUser;
   }
 

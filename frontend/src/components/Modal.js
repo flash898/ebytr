@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import MyContext from '../context/MyContext';
+import '../styles/Modal.css';
 
-const Modal = ({ updateTask, id, modal, element }) => {
+const Modal = ({ updateTask, id, modal }) => {
   const {
     name,
     task,
@@ -25,14 +26,13 @@ const Modal = ({ updateTask, id, modal, element }) => {
   }
 
   return (
-    <div className="div-modal" style={ { position: 'absolute', marginTop: '330px' } }>
+    <div className="div-modal" >
       <input
         type="text"
         className="form-control"
         name="name"
         placeholder="Name"
         onChange={ nameInput }
-        value={ element.name }
       />
       <input
         type="text"
@@ -40,7 +40,6 @@ const Modal = ({ updateTask, id, modal, element }) => {
         name="task"
         placeholder="Task"
         onChange={ taskInput }
-        value={ element.task }
       />
       <select className="form-select" onChange={ progressInput }>
         <option name="pending" value="Pending">Pending</option>
