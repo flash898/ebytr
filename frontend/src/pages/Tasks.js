@@ -19,20 +19,16 @@ const Tasks = () => {
 
   useEffect(() => {
     getTasks();
-  }, [getTasks]);
+  }, [getTasks, change]);
 
   const reloadTask = (id, name, task, progress) => {
     updateTask(id, name, task, progress);
-    setTimeout(() => {
-      getTasks();
-    }, 1);
+    setChange(!change);
   };
 
   const reloadPage = (id) => {
     deleteTask(id);
-    setTimeout(() => {
-      getTasks();
-    }, 1);
+    setChange(!change);
   };
 
   return (
