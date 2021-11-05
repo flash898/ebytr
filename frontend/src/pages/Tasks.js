@@ -19,20 +19,17 @@ const Tasks = () => {
 
   useEffect(() => {
     getTasks();
-  }, [getTasks]);
+    console.log('ola');
+  }, [getTasks, change]);
 
-  const reloadTask = (id, name, task, progress) => {
-    updateTask(id, name, task, progress);
-    setTimeout(() => {
-      getTasks();
-    }, 1);
+  const reloadTask = async (id, name, task, progress) => {
+    await updateTask(id, name, task, progress);
+    setChange(!change);
   };
 
-  const reloadPage = (id) => {
-    deleteTask(id);
-    setTimeout(() => {
-      getTasks();
-    }, 1);
+  const reloadPage = async (id) => {
+    await deleteTask(id);
+    setChange(!change);
   };
 
   return (

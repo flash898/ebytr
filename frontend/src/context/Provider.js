@@ -12,7 +12,7 @@ function Provider({ children }) {
   const [tasks, setTasks] = useState([]);
   const [name, setName] = useState('');
   const [task, setTask] = useState('');
-  const [progress, setProgress] = useState('');
+  const [progress, setProgress] = useState('Pending');
 
   // Axios functions
   function userExists(email, password) {
