@@ -16,6 +16,7 @@ const Tasks = () => {
     orderTaskByProgress } = useContext(MyContext);
 
   const [change, setChange] = useState(false);
+  const [order, setOrder] = useState(false);
 
   useEffect(() => {
     getTasks();
@@ -40,7 +41,7 @@ const Tasks = () => {
         className="btn btn-warning"
         onClick={ () => {
           orderTaskByAlfabetic();
-          setChange(!change);
+          setOrder(!order);
         } }
       >
         Alphabetical Order
@@ -50,7 +51,7 @@ const Tasks = () => {
         className="btn btn-warning"
         onClick={ () => {
           orderTaskByDate();
-          setChange(!change);
+          setOrder(!order);
         } }
       >
         Date
@@ -60,7 +61,7 @@ const Tasks = () => {
         className="btn btn-warning"
         onClick={ () => {
           orderTaskByProgress();
-          setChange(!change);
+          setOrder(!order);
         } }
       >
         Status
