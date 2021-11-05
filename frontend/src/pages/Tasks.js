@@ -19,7 +19,6 @@ const Tasks = () => {
 
   useEffect(() => {
     getTasks();
-    console.log('ola');
   }, [getTasks, change]);
 
   const reloadTask = async (id, name, task, progress) => {
