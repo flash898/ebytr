@@ -69,25 +69,6 @@ $ npm install
 $ npm start
 
 ```
-
-
-```bash
-# Clone este repositório
-$ git clone git@github.com:flash898/ebytr.git
-
-# Acesse a pasta do projeto no terminal/cmd
-$ cd frontend
-
-# Instale as dependências
-$ yarn
-
-# Instale as dependências extras necessárias
-$ yarn add
-
-# Execute a aplicação
-$ yarn start
-
-```
 ---
 
 
@@ -107,25 +88,8 @@ $ npm install
 # Execute a aplicação
 $ npm run dev
 
-```
-
-
-```bash
-# Clone este repositório
-$ git clone git@github.com:flash898/ebytr.git
-
-# Acesse a pasta do projeto no terminal/cmd
-$ cd backend
-
-# Instale as dependências
-$ yarn
-
-# Instale as dependências extras necessárias
-$ yarn add
-
-# Execute a aplicação
-$ yarn dev
-
+#Para rodar os testes
+$ npm run test
 ```
 ---
 
